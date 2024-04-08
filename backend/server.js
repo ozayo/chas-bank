@@ -13,8 +13,8 @@ app.use(bodyParser.json());
 
 // Arrays
 let users = [
-	{ id: 101, username: "JoeSpring", password: "FAKEPWDIamJoe99kpwnd!" },
-	{ id: 102, username: "JaneSummers", password: "FAKEPWDJaneRocks22!" },
+	{ id: 101, username: "ozay", password: "iKttJOgqUcOC!" },
+	{ id: 102, username: "someuser", password: "2SGK1Pq[48gy!" },
 	{ id: 103, username: "test", password: "test" },
 ];
 
