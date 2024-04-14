@@ -15,36 +15,36 @@ function Header() {
   return (
     <header className="py-4 md:py-8 px-4 md:px-0">
 
-<div className="flex items-center">
+<div className="flex items-center justify-between">
     <div className="logo flex-none w-30">
       <Link href="/">
-        <span className="font-extrabold">BANK WEB</span>
+        <span className="font-extrabold">CHAS BANK</span>
       </Link>
     </div>
     <div className="desknav grow hidden md:inline-block">
-      <ul className="flex justify-end gap-5">
+      <ul className="flex justify-end gap-5 align-middle items-center">
         <li>
-          <Link href="/" className="text-gray-800 hover:text-blue-500 font-bold">Home</Link>
+          <Link href="/" className="text-gray-800 hover:text-indigo-600 font-bold">Home</Link>
         </li>  
         <li>
-          <Link href="#" className="text-gray-800 hover:text-blue-500 font-bold">About</Link>
+          <Link href="#" className="text-gray-800 hover:text-indigo-600 font-bold">About</Link>
         </li>
         {isLoggedIn ? (
         <>
           <li>
-            <Link href="/account" className="text-gray-800 hover:text-blue-500 font-bold">My Account</Link>
+            <Link href="/account" className="text-gray-800 hover:text-indigo-600 font-bold">My Account</Link>
           </li>  
           <li>
-            <button className="bg-black text-white rounded-md px-2 py-1 text-sm" onClick={() => logout()}>Logout</button>
+            <button className="bg-black text-white rounded-md px-4 py-2 font-medium" onClick={() => logout()}>Logout</button>
           </li>
         </>
             ) : (
         <>
           <li>
-            <Link href="/create" className="text-gray-800 hover:text-blue-500 font-bold">Create Account</Link>
+            <Link href="/create" className="text-gray-800 hover:text-indigo-600 font-bold">Create Account</Link>
           </li>                
           <li>
-            <Link  href="/login" className="bg-black text-white rounded-md px-2 py-1 text-sm">Login</Link>
+            <Link  href="/login" className="bg-black text-white rounded-md px-4 py-2 font-medium">Login</Link>
           </li>
         </>
 			)}
@@ -68,18 +68,31 @@ className={`${
   } justify-end`}
 >
   <ul className="md:flex gap-4">
-      <li>
-        <Link href="/" className="text-gray-800 hover:text-blue-500 font-bold">Home</Link>
-      </li>
-      <li>
-        <Link href="#" className="text-gray-800  hover:text-blue-500 dark:hover:text-blue-500 font-bold">Link2</Link>
-      </li>
-      <li>
-        <Link href="#" className="text-gray-800  hover:text-blue-500 font-bold">Link3</Link>
-      </li>
-      <li>
-        <Link href="#" className="text-gray-800 hover:text-blue-500 font-bold">Link4</Link>
-      </li>
+        <li>
+          <Link href="/" className="text-gray-800 hover:text-indigo-600 font-bold">Home</Link>
+        </li>  
+        <li>
+          <Link href="#" className="text-gray-800 hover:text-indigo-600 font-bold">About</Link>
+        </li>
+        {isLoggedIn ? (
+        <>
+          <li>
+            <Link href="/account" className="text-gray-800 hover:text-indigo-600 font-bold">My Account</Link>
+          </li>  
+          <li>
+            <button className="bg-black text-white rounded-md px-4 py-2 font-medium" onClick={() => logout()}>Logout</button>
+          </li>
+        </>
+            ) : (
+        <>
+          <li>
+            <Link href="/create" className="text-gray-800 hover:text-indigo-600 font-bold">Create Account</Link>
+          </li>                
+          <li>
+            <Link  href="/login" className="bg-black text-white rounded-md px-4 py-2 font-medium">Login</Link>
+          </li>
+              </>
+          )}
   </ul>
 </div>
 

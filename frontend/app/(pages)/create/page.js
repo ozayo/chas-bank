@@ -12,12 +12,13 @@ export default function Create() {
 		createAccount()
 	}
 	return (
-		<form onSubmit={(e) => preventCreateDefault(e)}>
-			<div className="mx-auto max-w-sm w-full border-0 shadow-transparent sm:shadow-sm sm:border min-h-96">
-				<div>
-					<h1 className="text-2xl">Create account</h1>
-					<p>Enter username and password below to create an account</p>
-				</div>
+		<div className="grid md:grid-cols-2 grid-rows-1 py-16">
+			<div className="px-5 py-5 bg-neutral-100 text-center w-full align-middle content-center">
+				<h1 className="text-2xl font-bold">Create Account</h1>
+				<p>Enter username and password below to create an account</p>
+			</div>
+			<div className="px-5">
+			<form onSubmit={(e) => preventCreateDefault(e)}>
 				<div>
 					<div className="grid gap-4">
 						<div className="grid gap-2">
@@ -44,7 +45,7 @@ export default function Create() {
 								required
 							/>
 						</div>
-						<button type="submit" className="w-full">
+						<button type="submit" className="w-full bg-black text-white py-2 px-4 hover:bg-indigo-800">
 							Create account
 						</button>
 					</div>
@@ -55,7 +56,9 @@ export default function Create() {
 						</Link>
 					</div>
 				</div>
+			
+			</form>
 			</div>
-		</form>
+		</div>
 	);
 }

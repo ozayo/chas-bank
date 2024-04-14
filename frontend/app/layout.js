@@ -13,9 +13,9 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <body className={inter.className}>
         <AuthProvider>
-          <div className="container mx-auto max-w-3xl px-2">
+          <div className="container mx-auto max-w-screen-lg px-4 bg-white h-screen">
             <Header />
-              <main>
+              <main className="min-h-96">
                 {children}
               </main>
               <Footer />

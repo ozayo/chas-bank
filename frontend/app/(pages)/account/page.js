@@ -23,11 +23,15 @@ export default function Account() {
 			<div className="flex flex-col gap-4">
         <div className=" my-3">
           <h2 className="text-xl font-bold mb-3">Account info:</h2>
-          <div className="flex flex-row gap-2 justify-between items-center">
-            <label htmlFor="displayUser">Username:&nbsp;</label>
-            <p id="displayUser">{user}</p>
-            <label htmlFor="displayBalance">Balance:&nbsp;</label>
-            <p id="displayBalance">{balance}$</p>
+          <div className="grid grid-cols-2 gap-10">
+            <div className=" bg-neutral-100 rounded-lg text-black p-8 text-center shadow-sm">
+              <p htmlFor="displayUser">Username:&nbsp;</p>
+              <p className="font-bold text-lg mt-2" id="displayUser">{user}</p>
+            </div>
+            <div className="bg-black rounded-lg text-white p-8 text-center">
+              <p htmlFor="displayBalance">Balance:&nbsp;</p>
+              <p className="font-bold text-lg mt-2" id="displayBalance">{balance}$</p>
+            </div>
           </div>
 				</div>
 				

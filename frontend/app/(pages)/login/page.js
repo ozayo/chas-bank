@@ -20,12 +20,12 @@ export default function Login() {
   
   	return (
 		<form onSubmit={(e) => handleLogin(e)}>
-			<div className="min-h-96">
-				<div className="my-8">
+			<div className="grid md:grid-cols-2 grid-rows-1 py-16">
+				<div className="px-5 py-5 bg-neutral-100 text-center w-full align-middle content-center">
 					<h1 className="text-2xl font-bold mb-3">Login</h1>
 					<p>Enter username and password below to access your account</p>
 				</div>
-				<div>
+				<div className="px-5">
 					<div className="grid gap-4">
 						<div className="grid gap-2">
 							<label htmlFor="usernameInputId">Username</label>
@@ -51,8 +51,8 @@ export default function Login() {
 								required
 							/>
 						</div>
-						<button type="submit" className="w-full bg-black text-white rounded-md px-4 py-2 hover:bg-slate-800 my-3">
-							Submit
+						<button type="submit" className="w-full bg-black text-white py-2 px-4 hover:bg-indigo-800">
+							Login
 						</button>
 					</div>
 					<div className="mt-4 text-center text-sm">
