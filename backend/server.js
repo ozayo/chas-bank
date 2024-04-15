@@ -79,28 +79,30 @@ app.post("/users", (req, res) => {
 	}
 });
 
-// User login
+// User login endpoint
 app.post("/sessions", (req, res) => {
-	const { username, password } = req.body;
-	const userInUsers = users.some((user) => user.username === username);
+    const { username, password } = req.body;
 
-	if (userInUsers) {
-		const user = users.find((user) => user.username === username && user.password === password);
-		if (user) {
-			const otp = generateOTP();
-			const activeSessionIndex = sessions.findIndex((session) => session.userId === user.id && session.active === true);
-			if (activeSessionIndex !== -1) {
-				sessions[activeSessionIndex].active = false;
-			}
-			const newSession = { userId: user.id, token: otp, active: true };
-			sessions.push(newSession);
-			res.status(200).send(newSession);
-		} else {
-			res.status(401).send("Wrong password");
-		}
-	} else {
-		res.status(404).send("User does not exist");
-	}
+    const userInUsers = users.some((user) => user.username === username);
+
+    if (userInUsers) {
+        const user = users.find((user) => user.username === username && user.password === password);
+
+        if (user) {
+            const otp = generateOTP();
+            const activeSessionIndex = sessions.findIndex((session) => session.userId === user.id && session.active === true);
+            if (activeSessionIndex !== -1) {
+                sessions[activeSessionIndex].active = false;
+            }
+            const newSession = { userId: user.id, token: otp, active: true };
+            sessions.push(newSession);
+            res.status(200).send(newSession);
+        } else {
+            res.status(401).send("Wrong password");
+        }
+    } else {
+        res.status(404).send("User does not exist");
+    }
 });
 
 // Display account balance

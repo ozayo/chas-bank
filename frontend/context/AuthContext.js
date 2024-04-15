@@ -30,27 +30,33 @@ export const AuthProvider = ({ children }) => {
 		if (response.ok) {
 			router.push("/login");
 		} else {
-			console.log("Failed to create account.");
+			const errorText = await response.text();
+      throw new Error(errorText);
 		}
 	};
 
 	const login = async (username, password) => {
-		const response = await fetch("http://localhost:3001/sessions", {
-			method: "POST",
-			headers: {
-				"Content-Type": "application/json",
-			},
-			body: JSON.stringify({ username, password }),
-		});
-		if (response.ok) {
-			const data = await response.json();
-			setUser(username);
-			setIsLoggedIn(data.active);
-			setUserId(data.userId);
-			setToken(data.token);
-			router.push("/account");
-		}
-	};
+    const response = await fetch("http://localhost:3001/sessions", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ username, password }),
+    });
+
+    if (response.ok) {
+        const data = await response.json();
+        setUser(username);
+        setIsLoggedIn(data.active);
+        setUserId(data.userId);
+        setToken(data.token);
+        router.push("/account");
+    } else {
+        // Response as text since the server is sending plain text errors
+        const errorText = await response.text();
+        throw new Error(errorText);  // Doğrudan sunucudan gelen hata mesajını fırlat
+    }
+};
 
 	const getBalance = async () => {
 		const response = await fetch("http://localhost:3001/me/accounts", {

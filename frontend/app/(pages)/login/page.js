@@ -7,23 +7,26 @@ import Link from "next/link";
 export default function Login() {
 	const [username, setUsername] = useState("");
 	const [password, setPassword] = useState("");
+	const [errorMessage, setErrorMessage] = useState("");
 	const { login } = useAuth();
 
-	const handleLogin = async (e) => {
-		e.preventDefault();
-		try {
-			await login(username, password);
-		} catch (error) {
-			console.error("Login error:", error);
-		}
-  };
-  
-  	return (
-		<form onSubmit={(e) => handleLogin(e)}>
+	 const handleLogin = async (e) => {
+        e.preventDefault();
+        setErrorMessage('');
+        try {
+            await login(username, password);
+        } catch (error) {
+            setErrorMessage(error.message);
+        }
+    };
+
+	return (
+		<form onSubmit={(e) => handleLogin(e)}>		
 			<div className="grid md:grid-cols-2 grid-rows-1 py-16">
 				<div className="px-5 py-5 bg-neutral-100 text-center w-full align-middle content-center">
 					<h1 className="text-2xl font-bold mb-3">Login</h1>
-					<p>Enter username and password below to access your account</p>
+					<p>Enter username and password below to access your account.</p>
+					{errorMessage && <div className="bg-red-600 text-white items-center p-2 rounded-lg mt-3">{errorMessage}</div>}
 				</div>
 				<div className="px-5">
 					<div className="grid gap-4">
@@ -58,7 +61,7 @@ export default function Login() {
 					<div className="mt-4 text-center text-sm">
 						{"Don't have an account?"}
 						<Link href="/create" className="underline">
-							Create account
+							 Create account
 						</Link>
 					</div>
 				</div>
