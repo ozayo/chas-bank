@@ -1,3 +1,3 @@
 # CHAS BANK
 
-[![](https://markdown-videos-api.jorgenkh.no/youtube/{MVJR_RebZi8})](https://youtu.be/{MVJR_RebZi8})
+[![Watch the video](https://img.youtube.com/vi/MVJR_RebZi8/default.jpg)](https://youtu.be/MVJR_RebZi8)
